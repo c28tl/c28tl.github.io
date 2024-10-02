@@ -1,57 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
+<title>Home</title>
 
-	<style type="text/css">
-		.pages{
-			transition:0.25s;
-			width:160px;
-			height:80px;
-			background-color:transparent;
-			border-radius:40px;
-			font-size: 10px;
-			text-align: center;
-			vertical-align: middle;
-			line-height: 50px; 
-			color: black;
-			display:inline-block;
+<style type="text/css">
+	#menubar{
+			width:200px;
+			height:50px;
+			background-color: red;
+			margin:0px;
+			padding:0px;
+			border: 0px;
+			border-width:15px;
+			border-color: rgb(0, 0, 0);
+			border-radius:25px;
+		}
+		body{
+			margin:0px;
+			background-color: skyblue;
 
 		}
 
-		.pages:hover{
-			transition:0.25s;
-			width:160px;
-			height:80px;
-			background-color:black;
-			border-radius:40px;
-			text-align: center;
-			vertical-align: middle;
-			line-height: 50px; 
-			color: white;
+		#logo{
+			width: 150px;
+			height: 150px;
+			background-image:url("https://art.pixilart.com/sr2bfbc72dbdfaws3.png");
+			background-size:contain;
+			background-position:center;
+			background-repeat:no-repeat;
+			background-color: deepskyblue;
+			border-weight: 100%;
+			border: 10px solid blue;
+			border-radius: 100%;
 		}
-
-
+		.links{
+			color: limegreen;
+			float: left;
+			clear: none;
+			margins: 10px;
+		}
 		a{
 			text-decoration: none;
 		}
-	</style>
-
-	<title>benanan</title>
+	
+</style>
+	
 </head>
 <body>
+	<center>
+	<a href="index.html"><div id="logo"></div></a>
+<div id="menubar"><a href="projects.html"><div class="links">Projects</div></a>
+<a href="journals.html"><div class="links">Journals</div></a></div>
 
-<a href="projects.html">
-	<div class = "pages">my projects</div>
-</a>
-
-<a href="journals.html">
-	<div class = "pages">my journals</div>
-</a>
-
+</center>
 
 
 </body>
 </html>
-
-<!-- Make the links make two columns instead of two rows. -->
