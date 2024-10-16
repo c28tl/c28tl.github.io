@@ -3,9 +3,27 @@
 <head>
 <title>Home</title>
 
+<link rel="icon" type="image/png" href="./images/favicon.png" sizes="32x32" />
+<!-- <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" /> -->
+<!-- //text-align:center;
+	stransform: translate(-50%, 0); -->
 <style type="text/css">
-	#menubar{
-			width:200px;
+	:root{
+
+	}
+	#background{
+		width: 100%;
+		height: 10000px;
+}
+
+.whatever{
+	transition:0.5s;
+	border-radius: 0%;
+}
+	#bar{
+			position:relative;
+			top:0px;
+			width:180px;
 			height:50px;
 			background-color: red;
 			margin:0px;
@@ -18,10 +36,10 @@
 		body{
 			margin:0px;
 			background-color: skyblue;
-
 		}
 
 		#logo{
+
 			width: 150px;
 			height: 150px;
 			background-image:url("./images/redpikmin.png");
@@ -35,13 +53,14 @@
 		}
 		.links{
 			height:20px;
-			width: 100px;
+			width: 88px;
 			color: limegreen;
-			float: left;
-			clear: none;
+/*			float: left;*/
+/*			clear: none;*/
 			margins: 10px;
 			padding: 15px 0;
 			border-radius:25px;
+			display:inline-block;
 		}
 		.links:hover{
 			transition: 0.5s;
@@ -50,21 +69,75 @@
 			color: red;
 			border-radius:25px;
 		}
+		
 		a{
 			text-decoration: none;
-		}
-	
+}
+		
+}
+
 </style>
-	
+
 </head>
 <body>
+	<div id="background">
 	<center>
 	<a href="index.html"><div id="logo"></div></a>
-<div id="menubar"><a href="projects.html"><div class="links">Projects</div></a>
-<a href="journals.html"><div class="links">Journals</div></a></div>
 
+<div id="bar">
+	<a href="projects.html">
+		<div class="links">Projects</div>
+	</a>
+<a href="journals.html">
+	<div class="links">Journals</div>
+</a>
+
+</div>
+
+
+</div> 
+<!-- end of background div -->
 </center>
 
+
+<script type="text/javascript">
+	// bar.style.top = "160px"
+	console.log(bar)	
+document.addEventListener("scroll", function(event){
+	// console.log(window.scrollY)
+	// console.log(bar.style.top)
+	let x = 160
+	x = x-1
+	console.log(x)
+	if (window.scrollY > 172){
+		// bar.style.left="40%"
+		bar.style.textAlign="center"
+		bar.style.top="0px"
+		// bar.style.left="50%"
+		// bar.style.marginleft="-20%"
+		bar.style.width = "100%"
+		bar.style.borderRadius = "0%"
+		bar.classList.add("whatever")
+		function fixed (){
+			bar.style.position = "fixed"
+		}
+		setTimeout(fixed, 0)
+
+
+	}
+
+	if (window.scrollY <= 172){
+		bar.style.width = "180px";
+		bar.style.position = "relative"
+		bar.style.borderRadius = "25px";
+		bar.style.textAlign="center"
+		bar.style.left="0px"
+		// bar.style.transition="1s"
+
+	}
+	
+})
+</script>
 
 </body>
 </html>

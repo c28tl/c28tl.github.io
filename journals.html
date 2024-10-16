@@ -3,12 +3,19 @@
 <head>
 	
 	<title>Journals</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Kanit&family=Arimo&family=Grape+Nuts&family=Happy+Monkey&display=swap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 	<style type="text/css">
 
 		body{
 			margin: 0px;
 			background-color: skyblue;
 
+		}
+		h1{
+			font-family: "Grape Nuts";
+			font-size: 75px;
 		}
 		h2{
 			font-family: "Kanit", sans-serif;
@@ -20,12 +27,37 @@
 			font-family: "Arimo", sans-serif;
 		}
 
+		#bar{
+			position: fixed;
+			height: 50px;
+			width: 100%;
+			top:0px;
+			border-radius: 0%;
+			background-color: red;
+		}
+		#hi{
+			text-align: right;
+		}
+		#logo{
+			width: 50px;
+			height: 50px;
+			top: 0px;
+			background-image:url("./images/redpikmin.png");
+			background-size:contain;
+			background-position:center;
+			background-repeat:no-repeat;
+			position: absolute;
+			background-color: red;
+			border-radius: 100%;
+			text-align:left;
+		}
 		.pages{
 			transition:0.25s;
 			width:105px;
 			height:50px;
 			background-color:transparent;
 			border-radius:40px;
+			font-family: "Happy Monkey";
 			font-size: 10px;
 			text-align: center;
 			vertical-align: middle;
@@ -39,7 +71,7 @@
 			transition:0.25s;
 			width:105px;
 			height:50px;
-			background-color:black;
+			background-color: limegreen;
 			border-radius:40px;
 			text-align: center;
 			vertical-align: middle;
@@ -57,7 +89,11 @@
 <body>
 
 
-
+<div id="bar">
+	<a href="index.html">
+	<div id="logo"></div>
+</a>
+	<div id="hi">
 <a href="index.html">
 	<div class = "pages">Home</div>
 </a>
@@ -65,16 +101,28 @@
 <a href="projects.html">
 <div class = "pages">Projects</div>
 </a>
-
+</div>
+</div>
 <center>
-<h1>My Journal</h1>
 
+<h1>My Journal</h1>
+<h2>10/11/24</h2>
+<p>So um big news. For those people who absolutely hate doing work and loves doing HTML<br> but also hates doing reaserch and having to look up EVERY SINGLE PIECE OF CODE THAT IS NEEDED TO FINISH A PROJECT.<br> Well thats also me, so Allstate, you're in good hands. To put it simply the animation that<br> was supposed to have been finished a week ago encountered a problem. Fixed. The position.<br> Its very simple, in order to create a bar you have to make it fixed, but when the object is fixed it is not considered a part of the code,<br> so its basically non-existent to the web page. Its considered to not be a part of the normal flow.<br> So after 2 weeks of pondering, I found this on a webpage that I lost and now can't find. <b>Just dont use fixed in animations. Yeah.</p>
+<h2>10/11/24</h2>
+<p>cd ./desktop/urhappyplace.github.io <br>
+git add . <br>
+git commit -m "adding things"<br>
+git push <br>
+exit <br>
+</p>
+
+ <h2>10/2/24</h2>
+<p>Today I had to work on my index page, which personally went very well.<br> I was able to make a logo(which I made before), and attempted to make a menu bar. Sort of.<br> So now its a rectangle with curved coners and two pieces of text.<br> And the logo can go back to the index page. That is currently only on the index page, as<br> I have not put it on any other pages yet. And I wanted to make it so that the menu bar scrolls,<br> and then when it reaches to top of the page it stays fixed. So yeah. Working on that soon.</p>
 
 <h2>10/1/24</h2>
 <p>This is my first ever journal entry and I would like to say that this website is absolute dogwater. <br>No color, nothing located in the projects page. This is the only content on the website itself. <br>So it sucks. I want to try to make a drop down text box, where it will show more text when <br>a button is clicked. And it requires a ton of css. So imma try to do it myself.</p>
 
-<h2>10/2/24</h2>
-<p>Today I had to work on my index page, which personally went very well.<br> I was able to make a logo(which I made before), and attempted to make a menu bar. Sort of.<br> So now its a rectangle with curved coners and two pieces of text.<br> And the logo can go back to the index page. That is currently only on the index page, as<br> I have not put it on any other pages yet. And I wanted to make it so that the menu bar scrolls,<br> and then when it reaches to top of the page it stays fixed. So yeah. Working on that soon.</p>
+
 </center>
 
 </body>
