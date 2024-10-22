@@ -1,9 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Kanit&family=Arimo&family=Grape+Nuts&family=Happy+Monkey&display=swap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
 	<style type="text/css">
+		#bar{
+			position: fixed;
+			height: 50px;
+			width: 100%;
+			top:0px;
+			border-radius: 0%;
+			background-color: red;
+		}
+		#hi{
+			text-align: right;
+		}
+		#logo{
+			width: 50px;
+			height: 50px;
+			top: 0px;
+			background-image:url("./images/redpikmin.png");
+			background-size:contain;
+			background-position:center;
+			background-repeat:no-repeat;
+			position: absolute;
+			background-color: red;
+			border-radius: 100%;
+			text-align:left;
+		}
+		.pages{
+			transition:0.25s;
+			width:105px;
+			height:50px;
+			background-color:transparent;
+			border-radius:40px;
+			font-family: "Happy Monkey";
+			font-size: 10px;
+			text-align: center;
+			vertical-align: middle;
+			line-height: 50px; 
+			color: black;
+			display:inline-block;
 
+		}
+
+		.pages:hover{
+			transition:0.25s;
+			width:105px;
+			height:50px;
+			background-color: limegreen;
+			border-radius:40px;
+			text-align: center;
+			vertical-align: middle;
+			line-height: 50px; 
+			color: white;
+		}
 		#pikmin{
 			width:60px;
 			height:60px;
@@ -62,6 +115,17 @@
 			line-height: 50px; 
 			color: white;
 		}
+		.projects{
+			position: relative;
+			top: 70px;
+			height: 100px;
+			width: 100px;
+			border-radius: 10%;
+			background-image: url("./images/animation1.png");
+			background-size:contain;
+			background-position:center;
+			background-repeat:no-repeat;
+		}
 
 		
 
@@ -78,18 +142,26 @@
 	<title>Projects</title>
 </head>
 <body>
+<center>
+<div id="bar">
+	<a href="index.html">
+	<div id="logo"></div>
+</a>
+	<div id="hi">
 <a href="index.html">
-	<div class="home">Home</div>
+	<div class = "pages">Home</div>
 </a>
 
-<a href="journals.html">
-	<div class="home">my journals</div>
+<a href="projects.html">
+<div class = "pages">Projects</div>
 </a>
+</div>
+</div>
+</center>
 
-<div id="pikmin"></div>
-<div id="menubar"></div>
-
-
+<a href="animation.html">
+	<div class="projects"></div>
+</a>
 
 </body>
 </html>

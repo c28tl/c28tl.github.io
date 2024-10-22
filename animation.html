@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+	#beluga{
+		width: 200px;
+		height: 220px;
+		background-image: url("./images/belugaeat.jpg");
+		background-size: contain;
+		background-repeat: no-repeat;
+		z-index: 1;
+	}
+	#Banana{
+		width: 100px;
+		height: 110px;
+
+		background-image:url("https://th-thumbnailer.cdn-si-edu.com/tMRO8YCRZcJ847HtKU2mhrfN8aE=/fit-in/1600x0/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer/20110721125011banana2.jpg");
+		background-size:contain;
+		background-repeat: no-repeat;
+		animation-name: eatbanan;
+		animation-duration: 5s;
+		animation-iteration-count: infinite;
+		position: absolute;
+		z-index: 2;
+	}
+	@keyframes eatbanan {
+		0%{top: 70px;
+			left: 500px;
+			z-index: 2;
+		}
+		95%{top: 70px;
+			left: 100px;
+			z-index: 2;
+		}
+	}
+</style>
+</head>
+<body>
+	<div id="beluga"></div>
+<div id="Banana"></div>
+</body>
+</html>
