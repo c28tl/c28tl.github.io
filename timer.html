@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+	<title id="title"></title>
+
+	<style type="text/css">
+		.plus{
+			position: relative;
+			width: 100px;
+			height: 100px;
+			font-family: "Noto Sans JP", sans-serif;
+  			font-optical-sizing: auto;
+  			font-weight: 900;
+  			font-style: Black 900;
+  			font-size: 100px;
+  			border:none;
+  			background-color: white;
+  			text-align: center;
+  			text-decoration: none;
+  			display: inline-block;
+  			margin:30px;
+  			cursor: pointer;
+		}
+		.clock{
+			position: relative;
+			display: inline-block;
+			width:100px;
+			height:100px;
+			font-family: "Noto Sans JP", sans-serif;
+  			font-optical-sizing: auto;
+  			font-weight: 900;
+  			font-style: Black 900;
+  			margin: 30px;
+  			font-size: 100px;
+		}
+		.minus{
+			position: relative;
+			width: 100px;
+			height: 100px;
+			font-family: "Noto Sans JP", sans-serif;
+  			font-optical-sizing: auto;
+  			font-weight: 900;
+  			font-style: Black 900;
+  			font-size: 100px;
+  			border:none;
+  			background-color: white;
+  			text-align: center;
+  			text-decoration: none;
+  			display: inline-block;
+  			margin:30px;
+  			cursor: pointer;
+		}
+		.text{
+			position: relative;
+			width: 100px;
+			height: 100px;
+			font-family: "Noto Sans JP", sans-serif;
+  			font-optical-sizing: auto;
+  			font-weight: 900;
+  			font-style: Black 900;
+  			font-size: 30px;
+  			display:inline-block;
+  			text-align: center;
+  			margin: 30px;
+		}
+		#play{
+			position: relative;
+			width: 100px;
+			height: 100px;
+			background-image: url("./images/playbutt.png");
+			background-size:contain;
+			background-position:center;
+			background-repeat:no-repeat;
+		}
+	</style>
+</head>
+<body>
+	<center>
+		<button class="plus" id="plusH" onclick="addhours()">+</button>
+		<button class="plus" id="plusM" onclick="addminutes()">+</button>
+		<button class="plus" id="plusS" onclick="addseconds()">+</button>
+	<br>
+	<div class="clock" id="hour"></div>
+	<div class="clock" id="minutes"></div>
+	<div class="clock" id="seconds"></div>
+	<br>
+	<button class="minus" id="minusH" onclick="minhours()">-</button>
+	<button class="minus" id="minusM" onclick="minminutes()">-</button>
+	<button class="minus"  id="minusS" onclick="minseconds()">-</button>
+	<br>
+	<div class="text">Hours</div>
+	<div class="text">Minutes</div>
+	<div class="text">Seconds</div>
+
+	<audio id="timersound" src="./sounds/alarm.mp3"></audio>
+<br>
+	<button id="play" onclick="timerstart()"></button>
+	</center>
+
+
+
+<script type="text/javascript">
+		var x = ""
+		let minute = 0;
+		let second = 0;
+		let hours = 0;
+		let pp = 0
+		var timing
+		// let timersound = new Audio('./sounds/alarm.mp3')
+		
+		title.innerText = x+" The W timer";
+		hour.innerText = hours;
+		minutes.innerText = minute;
+		seconds.innerText = second;
+
+		function addseconds(){
+			if (second >= 59){
+				second = 0
+				seconds.innerText = second;
+			}else{
+				second = second + 1;
+				seconds.innerText = second;
+			}
+		} // end of addseconds function//
+
+
+
+		function addminutes(){
+			if (minute >= 59){
+				minute = 0
+				minutes.innerText = minute;
+			}
+
+			else{
+				minute = minute + 1;
+				minutes.innerText = minute;
+			}
+		}
+
+
+
+		function addhours(){
+			if (hours >= 23){
+				hours = 0
+				hour.innerText = hours;
+			}
+
+			else{
+				hours = hours + 1;
+				hour.innerText = hours;
+			}
+		}
+
+
+		function minhours(){
+			if (hours <= 0){
+				hours = 23
+				hour.innerText = hours;
+			}
+
+			else{
+				hours = hours - 1;
+				hour.innerText = hours;
+			}
+		}
+
+
+		function minseconds(){
+			if (second <= 0){
+				second = 59
+				seconds.innerText = second;
+			}
+
+			else{
+				second = second - 1;
+				seconds.innerText = second;
+			}
+		}
+
+
+		function minminutes(){
+			if (minute <= 0){
+				minute = 59
+				minutes.innerText = minute;
+			}
+
+			else {
+				minute = minute - 1;
+				minutes.innerText = minute;
+			}
+		}
+
+		function timerstart(){
+			if (pp%2 == 0){
+				timing = setInterval(start, 1000);
+				play.style.backgroundImage = "url('./images/pausebutt.png')"
+				timersound.pause()
+			} else if (pp%2 == 1){
+				Stop()
+				timersound.pause()
+				x = "Paused - "
+				title.innerText = x + "The W timer";
+			}
+			pp = pp + 1
+
+		}
+
+
+		function Stop(){
+			plusH.style.opacity = "1";
+			plusM.style.opacity = "1";
+			plusS.style.opacity = "1";
+
+			minusH.style.opacity = "1";
+			minusM.style.opacity = "1";
+			minusS.style.opacity = "1";
+			clearInterval(timing)
+			play.style.backgroundImage = "url('./images/playbutt.png')"
+		}
+
+
+		function start(){
+			if(second==0 && minute == 0 && hours == 0){
+			x = "Finished - "
+			title.innerText = x + "The W timer";
+			Stop()
+			timersound.play()
+		} else {
+			console.log("hello")
+			plusH.style.opacity = "0";
+			plusM.style.opacity = "0";
+			plusS.style.opacity = "0";
+
+
+			minusH.style.opacity = "0";
+			minusM.style.opacity = "0";
+			minusS.style.opacity = "0";
+
+			if (hours > 0 && minute <= 0 && second <= 0){
+				hours = hours - 1;
+				hour.innerText = hours
+				minute = 59
+				minutes.innerText = minute
+				second = 59
+				seconds.innerText= second
+				} 
+
+			else if(hours <= 0 && minute > 0 && second <= 0){
+					minute = minute - 1;
+				 	minutes.innerText = minute
+				 	second = 59
+				 	seconds.innerText = second
+				    } else {
+				    	second = second - 1;
+				    	seconds.innerText = second
+
+				    	x = hours + ":" + minute + ":" + second + " - ";
+			title.innerText = x+"The W timer";
+				    }
+
+			}
+
+			
+
+		 } // end of start function//
+
+
+		
+
+
+</script>
+</body>
+</html>
