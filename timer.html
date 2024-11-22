@@ -239,13 +239,13 @@
 			minusM.style.opacity = "0";
 			minusS.style.opacity = "0";
 
-			if (hours > 0 && minute <= 0 && second <= 0){
+			if (hours > 0 && minute <= 0 && second == 0){
 				hours = hours - 1;
 				hour.innerText = hours
 				minute = 59
 				minutes.innerText = minute
 				second = 59
-				seconds.innerText= second
+				seconds.innerText = second
 				} 
 
 			else if(hours <= 0 && minute > 0 && second <= 0){
@@ -253,7 +253,13 @@
 				 	minutes.innerText = minute
 				 	second = 59
 				 	seconds.innerText = second
-				    } else {
+				    } else if (second <= 0){
+				    	minute = minute - 1
+				    	minutes.innerText = minute;
+				    	second = 59
+				    	seconds.innerText = second
+				    }
+				    else {
 				    	second = second - 1;
 				    	seconds.innerText = second
 
