@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
+	<link rel="icon" type="image/png" href="./images/favicon.png" sizes="32x32" />
 	<title>Journals</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,6 +79,51 @@
 			color: white;
 		}
 
+		.panel {
+  			background-color: white;
+  			border-left: 1px solid whitesmoke;
+  			border-right: 1px solid whitesmoke;
+  			padding: 0 20px;
+  			max-height: 0;
+  			overflow: hidden;
+  			transition: max-height 0.2s ease-in-out;
+		}
+
+		.container {
+  			width: 80%;
+  			max-width: 600px;
+  			margin: 50px auto;
+		}
+
+		button.accordion {
+  			width: 100%;
+  			background-color: skyblue;
+  			border: none;
+  			outline: none;
+  			text-align: left;
+  			padding: 15px 20px;
+  			font-size: 18px;
+  			color: #333;
+  			cursor: pointer;
+  			transition: background-color 0.2s linear;
+		}
+
+		button.accordion:after {
+  			content: "\f150";
+  			font-family: "fontawesome";
+  			font-size: 18px;
+  			float: right;
+		}
+
+		button.accordion.is-open:after {
+  			content: "\f151";
+		}
+
+		button.accordion:hover,
+		button.accordion.is-open {
+  			background-color: #ddd;
+		}
+
 
 		a{
 			text-decoration: none;
@@ -106,30 +151,72 @@
 <center>
 
 <h1>My Journal</h1>
-<h2>11/20/24</h2>
+<button class="accordion">1/21/25</button>
+<div class="panel">
+<p>Help me pls. There is a hidden project in the projects page. Hope you guys can find it. Its a bug don't worry.</p>
+</div>
+<button class="accordion">12/3/24</button>
+<div class="panel">
+<p>New project. Its mostly just Math.random(), which randomizes a number. </p>
+</div>
+<button class="accordion">11/20/24</button>
+<div class="panel">
 <p>Timer made, it has all the uses of a timer, along with an alarm that I created myself(so so proud). For those who want to use it, go ahead because its such a W timer. Thank you thank you. It was very hard.</p>
-<h2>11/12/24</h2>
+</div>
+<button class="accordion">11/12/24</button>
+<div class="panel">
 <p>Um, I was told to keep my project pg, because of a gun, and I am in school, its pretty simple actually. </p>
-<h2>10/22/24</h2>
+</div>
+<button class="accordion">10/22/24</button>
+<div class="panel">
 <p>Umm, animation. Thats literally it. Not much else to say other than that. <br>Umm future projects, uhh. I guess visit counter. I found out that my weakes point right now is JavaScript. <br>But I mean that makes a lot of sense. Ive hated it anyways. Yeha.</p>
-<h2>10/11/24</h2>
-<p>So um big news. For those people who absolutely hate doing work and loves doing HTML<br> but also hates doing reaserch and having to look up EVERY SINGLE PIECE OF CODE THAT IS NEEDED TO FINISH A PROJECT.<br> Well thats also me, so Allstate, you're in good hands. To put it simply the animation that<br> was supposed to have been finished a week ago encountered a problem. Fixed. The position.<br> Its very simple, in order to create a bar you have to make it fixed, but when the object is fixed it is not considered a part of the code,<br> so its basically non-existent to the web page. Its considered to not be a part of the normal flow.<br> So after 2 weeks of pondering, I found this on a webpage that I lost and now can't find. <b>Just dont use fixed in animations. Yeah.</p>
-<h2>10/11/24</h2>
+</div>
+<button class="accordion">10/11/24</button>
+<div class="panel">
+<p>So um big news. For those people who absolutely hate doing work and loves doing HTML<br> but also hates doing reaserch and having to look up EVERY SINGLE PIECE OF CODE THAT IS NEEDED TO FINISH A PROJECT.<br> Well thats also me, so Allstate, you're in good hands. To put it simply the animation that<br> was supposed to have been finished a week ago encountered a problem. Fixed. The position.<br> Its very simple, in order to create a bar you have to make it fixed, but when the object is fixed it is not considered a part of the code,<br> so its basically non-existent to the web page. Its considered to not be a part of the normal flow.<br> So after 2 weeks of pondering, I found this on a webpage that I lost and now can't find. <br>Just dont use fixed in animations. Yeah.</p>
+</div>
+<button class="accordion">10/11/24</button>
+<div class="panel">
 <p>cd ./desktop/urhappyplace.github.io <br>
 git add . <br>
 git commit -m "adding things"<br>
 git push <br>
 exit <br>
 </p>
+</div>
 
- <h2>10/2/24</h2>
+<button class="accordion">10/2/24</button>
+<div class="panel">
 <p>Today I had to work on my index page, which personally went very well.<br> I was able to make a logo(which I made before), and attempted to make a menu bar. Sort of.<br> So now its a rectangle with curved coners and two pieces of text.<br> And the logo can go back to the index page. That is currently only on the index page, as<br> I have not put it on any other pages yet. And I wanted to make it so that the menu bar scrolls,<br> and then when it reaches to top of the page it stays fixed. So yeah. Working on that soon.</p>
+</div>
 
-<h2>10/1/24</h2>
+<button class="accordion">10/1/24</button>
+<div class="panel">
 <p>This is my first ever journal entry and I would like to say that this website is absolute dogwater. <br>No color, nothing located in the projects page. This is the only content on the website itself. <br>So it sucks. I want to try to make a drop down text box, where it will show more text when <br>a button is clicked. And it requires a ton of css. So imma try to do it myself.</p>
-
+</div>
 
 </center>
 
+<script type="text/javascript">
+	const accordionBtns = document.querySelectorAll(".accordion");
+
+	accordionBtns.forEach((accordion) => {
+  		accordion.onclick = function () {
+    		this.classList.toggle("is-open");
+
+    		let content = this.nextElementSibling;
+    		console.log(content);
+
+    		if (content.style.maxHeight) {
+      			//this is if the accordion is open
+      			content.style.maxHeight = null;
+    		} else {
+      			//if the accordion is currently closed
+      			content.style.maxHeight = content.scrollHeight + "px";
+      			console.log(content.style.maxHeight);
+    		}
+  		};
+	});
+</script>
 </body>
 </html>

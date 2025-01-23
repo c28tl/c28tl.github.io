@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="icon" type="image/png" href="./images/favicon.png" sizes="32x32" />
+	<title>Random ball to watch for the rest of your life</title>
+	<style type="text/css">
+		#balllzzz{
+			width: 100px;
+			height: 100px;
+			background-color: gold;
+			border-radius: 50%;
+			position: absolute;
+			transition: 0.1s;
+
+		}
+	</style>
+</head>
+<body>
+
+	<div id = "balllzzz"></div>
+	<script type="text/javascript">
+
+	function sigmamove(){
+		let x = Math.random()*1000;
+		let y = Math.random()*1000;
+		console.log("x: " + x);
+		console.log("y: " + y);
+
+		balllzzz.style.left = x + "px";
+		balllzzz.style.top = y + "px";
+	}
+	sigmamove();
+
+		setInterval(sigmamove, 0.000000000000000001);
+	</script>
+</body>
+</html>

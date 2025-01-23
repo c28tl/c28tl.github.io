@@ -1,0 +1,33 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+    <link rel="icon" type="image/png" href="./images/favicon.png" sizes="32x32" />
+ 	<style type="text/css">
+ 		#boxx{
+ 			width: 300px;
+ 			height: 300px;
+ 			background-color: green;
+ 		}
+ 	</style>
+ 	<title>ifelse project</title>
+ </head>
+ <body>
+  <div id="boxx"></div>
+  <script type="text/javascript">
+  	let counter = 0
+  	function player(){
+  		 counter = counter + 1
+  		if (counter % 4 == 1) {
+  			boxx.style.backgroundColor = "yellow"
+  		} else if (counter % 4 == 2){
+  			boxx.style.backgroundColor = "orange"
+  		} else if (counter % 4 == 3){
+  			boxx.style.backgroundColor = "red"
+  		} else if (counter % 4 == 0){
+  			boxx.style.backgroundColor = "green"
+  		}
+  	}
+  	boxx.addEventListener("click", player);
+  </script>
+ </body>
+ </html>

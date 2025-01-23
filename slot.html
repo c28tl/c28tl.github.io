@@ -1,0 +1,75 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Slot Machine</title>
+	<style type="text/css">
+		.slots{
+			background-color: white;
+			position: relative;
+			display: inline-block;
+			left: 25%;
+		}
+		#one{
+			height: 250px;
+			width: 200px;
+			border-style: solid;
+			border-width: 5px;
+			border-color: black;
+		}
+		#two{
+			height: 250px;
+			width: 200px;
+			border-style: solid;
+			border-width: 5px;
+			border-color: black;
+		}
+		#three{
+			height: 250px;
+			width: 200px;
+			border-style: solid;
+			border-width: 5px;
+			border-color: black;
+		}
+		#bar{
+			height: 250px;
+			width: 200px;
+			background-image:url("./images/button.png");
+			background-size:contain;
+			background-position:center;
+			background-repeat:no-repeat;
+		}
+		#bar:hover{
+			height: 250px;
+			width: 200px;
+			border-radius: 50%;
+			background-image:url("./images/button1.png");
+			background-size:contain;
+			background-position:center;
+			background-repeat:no-repeat;
+
+		}
+	</style>
+</head>
+<body>
+		<div class = "slots" id = "one"></div>
+		<div class = "slots" id = "two"></div>
+		<div class = "slots" id = "three"></div>
+		<div class = "slots" id = "bar"></div>
+
+<script type="text/javascript">
+	let x = (window.innerHeight/2) - 200 + "px"
+	let slots = document.getElementsByClassName('slots')
+	console.log(x)
+	document.getElementById("one").style.top = x;
+	document.getElementById("two").style.top = x;
+	document.getElementById("three").style.top = x;
+	document.getElementById("bar").style.top = x;
+	console.log(slots.style.top)
+
+	document.getElementById("bar").addEventListener("click", spin);
+	
+</script>
+</body>
+</html>
