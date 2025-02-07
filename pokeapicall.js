@@ -24,8 +24,8 @@ async function fetchData(){
 			throw new Error("Could not find pokemon")
 		}
 		const data = await response.json();
-		const pokemonSprite = data.sprites.front_default;
 		const pokemonid = data.id;
+		const pokemonSprite = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + pokemonid +".png";
 		const pokename = data.name.substring(0, 1).toUpperCase() + data.name.substring(1);
 		const imgElement = document.getElementById("pokemonSprite")
 		imgElement.src = pokemonSprite;

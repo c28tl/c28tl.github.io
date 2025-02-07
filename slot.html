@@ -12,25 +12,35 @@
 			left: 25%;
 		}
 		#one{
-			height: 250px;
+			height: 300px;
 			width: 200px;
 			border-style: solid;
 			border-width: 5px;
 			border-color: black;
+			background-image: ;
+			background-size:contain;
+			background-position:center;
+			background-repeat:no-repeat;
 		}
 		#two{
-			height: 250px;
+			height: 300px;
 			width: 200px;
 			border-style: solid;
 			border-width: 5px;
 			border-color: black;
+			background-size:contain;
+			background-position:center;
+			background-repeat:no-repeat;
 		}
 		#three{
-			height: 250px;
+			height: 300px;
 			width: 200px;
 			border-style: solid;
 			border-width: 5px;
 			border-color: black;
+			background-size:contain;
+			background-position:center;
+			background-repeat:no-repeat;
 		}
 		#bar{
 			height: 250px;
@@ -61,14 +71,43 @@
 <script type="text/javascript">
 	let x = (window.innerHeight/2) - 200 + "px"
 	let slots = document.getElementsByClassName('slots')
+	let results = ["pokemon", "grape", "7", "post-it"]
+	var y
+	var i
+	var z = 0
 	console.log(x)
 	document.getElementById("one").style.top = x;
 	document.getElementById("two").style.top = x;
 	document.getElementById("three").style.top = x;
 	document.getElementById("bar").style.top = x;
-	console.log(slots.style.top)
+	// console.log(slots.style.top)
 
 	document.getElementById("bar").addEventListener("click", spin);
+	document.getElementById("bar").onmousedown = function(){
+		document.getElementById("bar").style.backgroundImage = `url('./images/button2.png')`;
+	}
+	document.getElementById("bar").onmouseup = function(){
+		document.getElementById("bar").style.backgroundImage = `url('./images/button1.png')`;
+	}
+
+
+	function spin(){
+
+			y = Math.floor(Math.random() * results.length)
+			c = Math.floor(Math.random() * results.length)
+			v = Math.floor(Math.random() * results.length)
+
+			console.log(results[y])
+
+			document.getElementById("one").style.backgroundImage = `url('./images/${results[y]}.png')`;
+			document.getElementById("two").style.backgroundImage = `url('./images/${results[c]}.png')`;
+			document.getElementById("three").style.backgroundImage = `url('./images/${results[v]}.png')`;
+
+}
+
+	function endofspin(){
+
+	}
 	
 </script>
 </body>
