@@ -41,8 +41,11 @@
  	heart.addEventListener("click", hello)
 
  	function hello(){
- 		x = Math.floor(Math.random()*7)
+ 		x = Math.floor(Math.random()*14)
  		window.location.replace(songs[x])
+ 		if (x == 5){
+ 			alert("UR RICKROLLED HAHAHA LBOZO")
+ 		}
  	}
 
 
