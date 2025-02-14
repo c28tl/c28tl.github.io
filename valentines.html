@@ -1,0 +1,53 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+
+ 	<title>Valentines day:(</title>
+ 	<style type="text/css">
+ 		body{
+ 			background-color: hotpink;
+ 		}
+ 		.random{
+ 			height: 100px;
+ 			width: 100px;
+ 			background-image: url("./images/heartz.png");
+ 			background-size:contain;
+			background-position:center;
+			background-repeat:no-repeat;
+ 		}
+ 		.random:hover{
+ 			height: 120px;
+ 			width: 120px;
+ 			background-image: url("./images/heartz.png");
+ 			background-size:contain;
+			background-position:center;
+			background-repeat:no-repeat;
+ 		}
+ 	</style>
+ </head>
+ <body>
+ 	<center>
+ 	<div class="random" id = "1"></div>
+
+
+ </center>
+
+ 	<script type="text/javascript">
+
+ 	let x
+ 	let songs = ["https://www.youtube.com/watch?v=vGJTaP6anOU", "https://www.youtube.com/watch?v=2Vv-BfVoq4g", "https://www.youtube.com/watch?v=9bFHsd3o1w0", "https://www.youtube.com/watch?v=rtOvBOTyX00", "https://www.youtube.com/watch?v=dQw4w9WgXcQ", "https://www.youtube.com/watch?v=f_HmF84G7ZY", "https://www.youtube.com/watch?v=UelDrZ1aFeY", "https://www.youtube.com/watch?v=450p7goxZqg", "https://www.youtube.com/watch?v=izGwDsrQ1eQ", "https://www.youtube.com/watch?v=djV11Xbc914", "https://www.youtube.com/watch?v=iLBBRuVDOo4", "https://www.youtube.com/watch?v=L_jWHffIx5E", "https://www.youtube.com/watch?v=Qx2gvHjNhQ0"]
+ 	let heart = document.getElementById('1')
+
+ 	heart.addEventListener("click", hello)
+
+ 	function hello(){
+ 		x = Math.floor(Math.random()*7)
+ 		window.location.replace(songs[x])
+ 	}
+
+
+
+ 	</script>
+
+ </body>
+ </html>
