@@ -60,6 +60,12 @@
 		#kokomoimg{
 			background-image: url(./images/kokomo.png);
 		}
+		#ownnightimg{
+			background-image: url(./images/weownnight.png);
+		}
+		#melobluimg{
+			background-image: url(./images/meloblu.png);
+		}
 		.names{
 			font-size: 50px;
 		}
@@ -76,6 +82,8 @@
 <body>
 	<div id = "heading"></div>
 	<center>
+
+	<div id = "redrum"></div>
 	<div class="music">
 	<div class = "img" id = "redrumimg"></div>
 	<div class = "names">Redrum</div>
@@ -83,6 +91,7 @@
 	<div class = "artists">21 Savage</div>
 	</div>
 
+	<div id = "adoreu">
 	<div class="music">
 	<div class = "img" id = "adoreuimg"></div>
 	<div class = "names">Adore u</div>
@@ -90,7 +99,9 @@
 	<div class = "artists">Fred again.. & Obongjayar
 </div>
 	</div>
+	</div>
 
+	<div id = "heavydirty">
 	<div class="music">
 	<div class = "img" id = "blurryfaceimg"></div>
 	<div class = "names">Heavy Dirty Soul</div>
@@ -98,7 +109,9 @@
 	<div class = "artists">Twenty One Pilots
 </div>
 	</div>
+	</div>
 
+	<div id = "stressed">
 	<div class="music">
 	<div class = "img" id = "blurryfaceimg"></div>
 	<div class = "names">Stressed Out</div>
@@ -106,7 +119,9 @@
 	<div class = "artists">Twenty One Pilots
 </div>
 	</div>
+	</div>
 
+	<div id = "whitney">
 <div class="music">
 	<div class = "img" id = "coyoteimg"></div>
 	<div class = "names">WHITNEY</div>
@@ -114,7 +129,9 @@
 	<div class = "artists">Tommy Richman
 </div>
 	</div>
+	</div>
 
+	<div id = "darlingi">
 	<div class="music">
 	<div class = "img" id = "chromakopiaimg"></div>
 	<div class = "names">Darling, I</div>
@@ -122,7 +139,9 @@
 	<div class = "artists">Tyler, the Creator
 </div>
 	</div>
+	</div>
 
+	<div id = "honest">
 	<div class="music">
 	<div class = "img" id = "dieforimg"></div>
 	<div class = "names">Honest</div>
@@ -130,7 +149,9 @@
 	<div class = "artists">Baby Keem
 </div>
 	</div>
+	</div>
 
+	<div id = "mockingbird">
 	<div class="music">
 	<div class = "img" id = "encoreimg"></div>
 	<div class = "names">Mockingbird</div>
@@ -138,7 +159,9 @@
 	<div class = "artists">Eminem
 </div>
 	</div>
+	</div>
 
+	<div id = "together">
 	<div class="music">
 	<div class = "img" id = "joyimg"></div>
 	<div class = "names">Together</div>
@@ -146,26 +169,76 @@
 	<div class = "artists">Marshmello
 </div>
 	</div>
+</div>
 
+	<div id = "jungle">
 	<div class="music">
 	<div class = "img" id = "jungleimg"></div>
 	<div class = "names">Jungle</div>
 	<div class="by">by</div>
-	<div class = "artists">Tash Sultana
-</div>
+	<div class = "artists">Tash Sultana</div>
 	</div>
-
+</div>
+	<div id = "kokomo">
 	<div class="music">
 	<div class = "img" id = "kokomoimg"></div>
 	<div class = "names">Going Kokomo</div>
 	<div class="by">by</div>
-	<div class = "artists">Royel Otis
+	<div class = "artists">Royel Otis</div>
+	</div>
+</div>
+
+	<div id = "ownnight">
+	<div class="music">
+	<div class = "img" id = "ownnightimg"></div>
+	<div class = "names">We Own the Night</div>
+	<div class="by">by</div>
+	<div class = "artists">AL3JANDRO</div>
+	</div>
+</div>
+
+	<div id = "famties">
+	<div class="music">
+	<div class = "img" id = "melobluimg"></div>
+	<div class = "names">Family Ties</div>
+	<div class="by">by</div>
+	<div class = "artists">Baby Keem & Kendrick Lamar
 </div>
 	</div>
+</div>
 
 	</center>
 <script type="text/javascript">
-	
+	let redrum = document.getElementById('redrum')
+	let adoreu = document.getElementById('adoreu')
+	let heavydirty = document.getElementById('heavydirty')
+	let stressed = document.getElementById('stressed')
+	let whitney = document.getElementById('whitney')
+	let darlingi = document.getElementById('darlingi')
+	let honest = document.getElementById('honest')
+	let mokingbird = document.getElementById('mockingbird')
+	let together = document.getElementById('together')
+	let jungle = document.getElementById('jungle')
+	let kokomo = document.getElementById('kokomo')
+	let ownnight = document.getElementById('ownnight')
+	let famties = document.getElementById('famties')
+	redrum.addEventListener("click", play("redrum"))
+	adoreu.addEventListener("click", play("adoreu"))
+	heavydirty.addEventListener("click", play("heavydirty"))
+	stressed.addEventListener("click", play("stressed"))
+	whitney.addEventListener("click", play("whitney"))
+	darlingi.addEventListener("click", play("darlingi"))
+	honest.addEventListener("click", play("honest"))
+	mockingbird.addEventListener("click", play("mockingbird"))
+	together.addEventListener("click", play("together"))
+	jungle.addEventListener("click", play("jungle"))
+	kokomo.addEventListener("click", play("kokomo"))
+	ownnight.addEventListener("click", play("ownnight"))
+	famties.addEventListener("click", play("famties"))
+
+	function play(name){
+		
+	}
 </script>
 </body>
 </html>
