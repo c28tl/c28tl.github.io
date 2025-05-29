@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Peopletype words</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap" rel="stylesheet">
+	<style type="text/css">
+		.letters{
+			height: 50px;
+			width: 50px;
+			background: blue;
+			display: inline-block;
+		}
+
+		.line-break {
+    		width: 100%;
+    		height: 0;
+    		clear: both;
+    		flex-basis: 100%; /* if using flexbox */
+		}
+
+		#myInput {
+			position: absolute;
+			left: -9999px;
+			opacity: 0;
+		}
+
+		.done{
+			width: 100%;
+			height: 50px;
+			font-size: 75px;
+			font-family: "Comic Relief";
+			position: relative;
+		}
+		
+	</style>
+</head>
+<body>
+<h3>Open the console (F12) to see the output</h3>
+<input type="text" id="myInput" value="">
+<div class = "done" id = "wpm"></div>
+<div class = "done" id = "errors"></div>
+<div class = "done" id = "time"></div>
+<script type="text/javascript">
+
+	let words = [
+		// Common nouns
+		["t","i","m","e"," "], ["p","e","r","s","o","n"," "], ["y","e","a","r"," "], ["w","a","y"," "], ["d","a","y"," "], 
+		["t","h","i","n","g"," "], ["w","o","r","l","d"," "], ["l","i","f","e"," "], ["h","a","n","d"," "], ["p","a","r","t"," "], 
+		["c","h","i","l","d"," "], ["e","y","e"," "], ["w","o","m","a","n"," "], ["p","l","a","c","e"," "], ["w","o","r","k"," "], 
+		["w","e","e","k"," "], ["c","a","s","e"," "], ["p","o","i","n","t"," "], ["g","o","v","e","r","n","m","e","n","t"," "], 
+		["c","o","m","p","a","n","y"," "], ["n","u","m","b","e","r"," "], ["g","r","o","u","p"," "], ["p","r","o","b","l","e","m"," "], 
+		["f","a","c","t"," "], ["h","o","u","s","e"," "], ["w","a","t","e","r"," "], ["m","o","n","e","y"," "], 
+		["s","t","o","r","y"," "], ["n","i","g","h","t"," "], ["b","o","o","k"," "],
+		
+		// Action verbs
+		["w","a","l","k"," "], ["r","u","n"," "], ["j","u","m","p"," "], ["s","w","i","m"," "], ["d","a","n","c","e"," "], 
+		["s","i","n","g"," "], ["l","a","u","g","h"," "], ["c","r","y"," "], ["s","l","e","e","p"," "], ["e","a","t"," "],
+		["d","r","i","n","k"," "], ["w","r","i","t","e"," "], ["r","e","a","d"," "], ["s","p","e","a","k"," "], 
+		["l","i","s","t","e","n"," "], ["w","a","t","c","h"," "], ["p","l","a","y"," "], ["w","o","r","k"," "], 
+		["s","t","u","d","y"," "], ["t","h","i","n","k"," "], ["s","m","i","l","e"," "], ["f","r","o","w","n"," "], 
+		["s","h","o","u","t"," "], ["w","h","i","s","p","e","r"," "], ["c","r","e","a","t","e"," "], 
+		["d","e","s","t","r","o","y"," "], ["b","u","i","l","d"," "], ["b","r","e","a","k"," "], 
+		["o","p","e","n"," "], ["c","l","o","s","e"," "],
+		
+		// Adjectives
+		["n","e","w"," "], ["g","o","o","d"," "], ["h","i","g","h"," "], ["o","l","d"," "], ["g","r","e","a","t"," "], 
+		["b","i","g"," "], ["s","m","a","l","l"," "], ["l","a","r","g","e"," "], ["l","o","n","g"," "], ["y","o","u","n","g"," "],
+		["i","m","p","o","r","t","a","n","t"," "], ["f","e","w"," "], ["p","u","b","l","i","c"," "], ["b","a","d"," "], 
+		["s","a","m","e"," "], ["a","b","l","e"," "], ["h","a","p","p","y"," "], ["s","a","d"," "], ["a","n","g","r","y"," "], 
+		["c","a","l","m"," "], ["b","r","i","g","h","t"," "], ["d","a","r","k"," "], ["l","o","u","d"," "], ["q","u","i","e","t"," "], 
+		["h","o","t"," "], ["c","o","l","d"," "], ["w","a","r","m"," "], ["c","o","o","l"," "], ["e","a","s","y"," "], ["h","a","r","d"," "],
+		
+		// Abstract concepts
+		["l","o","v","e"," "], ["p","e","a","c","e"," "], ["h","o","p","e"," "], ["f","a","i","t","h"," "], ["t","r","u","t","h"," "], 
+		["f","r","e","e","d","o","m"," "], ["j","u","s","t","i","c","e"," "], ["c","o","u","r","a","g","e"," "], 
+		["w","i","s","d","o","m"," "], ["k","n","o","w","l","e","d","g","e"," "],
+		
+		// Fun words
+		["b","u","b","b","l","e"," "], ["s","i","z","z","l","e"," "], ["f","l","u","t","t","e","r"," "], 
+		["s","p","a","r","k","l","e"," "], ["w","i","g","g","l","e"," "], ["z","o","o","m"," "], ["s","p","l","a","s","h"," "], 
+		["w","h","i","z"," "], ["t","h","u","m","p"," "], ["b","o","o","m"," "], ["w","h","o","o","s","h"," "], 
+		["f","i","z","z"," "], ["b","u","z","z"," "], ["p","o","p"," "], ["z","a","p"," "], ["c","r","a","s","h"," "], 
+		["s","n","a","p"," "], ["w","h","i","r","l"," "], ["s","w","i","r","l"," "], ["t","w","i","s","t"," "]
+	];
+
+	let letter2 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' '];
+	let letterkeycodes = [65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 32];
+
+
+
+
+	let availableWords = [...words]; // Create a working copy
+	let letters = [];
+	let nextletter;
+	let keynumber;
+	let numofspace = 0;
+	let letternum = 0;
+	const input = document.getElementById('myInput');
+	let boom;
+	let lettercount = 0;
+	let badcounter = 0;
+	let errordiv;
+	let wpmdiv;
+	let time = 0;
+	let timerInterval;
+	let timeron = false;
+	let letterstyped = 0;
+	let accuracy;
+	
+	function shuffleArray(array) {
+		// Fisher-Yates shuffle algorithm
+		for (let i = array.length - 1; i > 0; i--) {
+			const j = Math.floor(Math.random() * (i + 1));
+			[array[i], array[j]] = [array[j], array[i]];
+		}
+		return array;
+	}
+	
+		function generate(count) {
+		
+		for (let i = 0; i < count; i++) {
+			// If we've used all words, reshuffle and start again
+			if (availableWords.length === 0) {
+				availableWords = [...words];
+				shuffleArray(availableWords);
+			}
+			
+			// Take the first word from our available words
+			console.log(availableWords.shift());
+			let wordToUse=availableWords.shift();
+			console.log(wordToUse);
+			
+			// Join the letters for display purposes
+			const displayWord = wordToUse.join("");
+			console.log(displayWord + " (as array: [" + wordToUse + "])");
+			printletters(wordToUse.length, wordToUse, displayWord);
+		}
+	}
+
+	function printletters(wordlength, word, displayedword){
+		for (let b = 0; b < wordlength; b++){
+			if (b == wordlength - 1){
+				let space = document.createElement('div');
+				numofspace = numofspace + 1;
+				if (numofspace % 10 == 0){
+					space.className = 'line-break';
+					space.id = "letter" + letternum;
+					console.log(space.id);
+				} else {
+					space.id = "letter" + letternum;
+					space.style.width = "10px";
+					space.style.fontSize = "25px";
+					space.style.display = "inline-block";
+					console.log(space.id);
+					
+				}
+				letters.push(space.innerText);
+				document.body.appendChild(space);
+			} else {
+				let newdiv = document.createElement('div');
+				newdiv.id = "letter" + letternum;
+				// newdiv.style.height = "25px";
+				// newdiv.style.width = "25px";
+				newdiv.style.margins = "0px"
+				newdiv.style.padding = "0px"
+				newdiv.style.position = "relative";
+				newdiv.style.fontSize = "25px"
+				newdiv.style.display = "inline-block";
+				newdiv.style.fontFamily = "Comic Relief"
+				newdiv.style.textAlign = 'center';
+				newdiv.innerHTML = word[b];
+				console.log(newdiv.id);
+				letters.push(newdiv.innerText)
+				document.body.appendChild(newdiv);
+
+			}
+			letternum = letternum + 1;
+		} //end of for loop — so your making a div for every letter in a word
+
+
+	}
+
+	function finished(){
+		accuracy = Math.floor(((letterstyped-badcounter)/letterstyped)*100)
+		console.log(letterstyped);
+		errordiv = document.getElementById("errors");
+		errordiv.innerText = "Accuracy: " + accuracy + "%";
+		errordiv.style.top = "200px";
+		timediv = document.getElementById("time");
+		timediv.innerText = "Time: " + time + " seconds";
+		timediv.style.top = "300px";
+
+	}
+
+	function typing(e){
+		if (timeron == false){
+			startTimer();
+			timeron = true;
+		}
+		boom = document.getElementById("letter" + lettercount);
+		if (e == keynumber){
+			nextletter = letters.shift();
+			keynumber = letterkeycodes[letter2.indexOf(nextletter)];
+			if (keynumber === undefined){
+				keynumber = 32
+			}
+
+			console.log(keynumber);
+			lettercount = lettercount + 1;
+			console.log("YIPEEE");
+			boom.style.color = "green";
+			boom.style.backgroundColor = "white";
+			if (lettercount == letternum - 1){
+				console.log("DONE");
+				console.log("Errors: " + badcounter)
+				timeron = false;
+				finished();
+				stopTimer();
+				console.log("Time:", time, "seconds");
+
+			}
+		} else if (e != keynumber){
+			boom.style.backgroundColor = "red";
+			badcounter = badcounter + 1
+		}
+		letterstyped = letterstyped + 1
+	}
+
+	function startTimer() {
+  		timerInterval = setInterval(() => {
+    	time++;
+    	console.log("Time:", time, "seconds");
+  		}, 1000);
+	}
+
+	function stopTimer() {
+  		clearInterval(timerInterval);
+	}
+	
+	// Initial shuffle
+	shuffleArray(availableWords);
+	
+	// Generate 10 random words
+	generate(15);
+
+	nextletter = letters.shift();
+	keynumber = letterkeycodes[letter2.indexOf(nextletter)];
+	if (keynumber === undefined){
+			keynumber = 32
+	}
+
+	console.log(keynumber);
+
+	console.log(letters)
+
+	input.focus();
+
+	document.addEventListener('click', function() {
+		input.focus();
+	});
+
+	input.addEventListener('input', function(e) {
+		console.log('You typed:', e.target.value);
+		console.log('Last character:', e.target.value.slice(-1));
+	});
+
+	input.addEventListener('keydown', function(e) {
+		console.log('Keycode:', e.keyCode);
+		console.log('Key:', e.key);
+		console.log('Code:', e.code);
+		typing(e.keyCode);
+	});
+
+</script>
+</body>
+</html>
