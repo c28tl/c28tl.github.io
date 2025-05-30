@@ -110,6 +110,9 @@
 	let timeron = false;
 	let letterstyped = 0;
 	let accuracy;
+	let wordnumber;
+	let wpm;
+	let numofwords
 	
 	function shuffleArray(array) {
 		// Fisher-Yates shuffle algorithm
@@ -121,7 +124,9 @@
 	}
 	
 		function generate(count) {
-		
+		wordnumber = count
+		console.log(count)
+		shuffleArray(availableWords);
 		for (let i = 0; i < count; i++) {
 			// If we've used all words, reshuffle and start again
 			if (availableWords.length === 0) {
@@ -153,6 +158,7 @@
 				} else {
 					space.id = "letter" + letternum;
 					space.style.width = "10px";
+					space.style.height = "20px"
 					space.style.fontSize = "25px";
 					space.style.display = "inline-block";
 					console.log(space.id);
@@ -186,14 +192,18 @@
 
 	function finished(){
 		accuracy = Math.floor(((letterstyped-badcounter)/letterstyped)*100)
+		wpm = Math.floor((wordnumber/time)*60)
 		console.log(letterstyped);
 		errordiv = document.getElementById("errors");
 		errordiv.innerText = "Accuracy: " + accuracy + "%";
 		errordiv.style.top = "200px";
 		timediv = document.getElementById("time");
 		timediv.innerText = "Time: " + time + " seconds";
-		timediv.style.top = "300px";
-
+		timediv.style.top = "250px";
+		wpmdiv = document.getElementById("wpm");
+		wpmdiv.innerText = "Words Per Minute: " + wpm + "(wpm)";
+		wpmdiv.style.top = "450px";
+		console.log(wpm + "wpm");
 	}
 
 	function typing(e){
@@ -208,7 +218,6 @@
 			if (keynumber === undefined){
 				keynumber = 32
 			}
-
 			console.log(keynumber);
 			lettercount = lettercount + 1;
 			console.log("YIPEEE");
@@ -240,12 +249,29 @@
 	function stopTimer() {
   		clearInterval(timerInterval);
 	}
+
+	numofwords = parseInt(window.prompt("Type in number of words to generate:", "Type a number!"), 10);
+
+
+	function isitright(selection){
+		if ( /^[0-9.,]+$/.test(selection)) {
+  			console.log('pass');
+  			generate(numofwords);
+	} else {
+  		console.log('fail');
+  		numofwords = parseInt(window.prompt("Make it a number", "Type a number!"), 10);
+  			isitright(numofwords);
+	}
+
+	}
+
+	isitright(numofwords)
 	
 	// Initial shuffle
-	shuffleArray(availableWords);
+	// shuffleArray(availableWords);
 	
 	// Generate 10 random words
-	generate(15);
+	generate(numofwords);
 
 	nextletter = letters.shift();
 	keynumber = letterkeycodes[letter2.indexOf(nextletter)];
